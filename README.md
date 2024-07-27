@@ -1,54 +1,9 @@
 # HEATMAP_BACKEND
 A monolithic backend with GraphQL and NestJS to manage the heatmap SaaS
-![Inf](https://github.com/user-attachments/assets/fbcc04b7-5134-4ff9-b78c-fdbf9fcdbf1e)
+![image](https://github.com/user-attachments/assets/c816f903-3bdb-404c-9ca3-7fc496998b32)
+
 
 > Checkout [NestJS Prisma Schematics](https://github.com/marcjulian/nestjs-prisma) to automatically add Prisma support to your Nest application.
-
-## Version
-
-| Branch                                                                                                       |  Nest | Prisma                                               |  Graphql                                                              |
-| ------------------------------------------------------------------------------------------------------------ | ----- | ---------------------------------------------------- | --------------------------------------------------------------------- |
-| main                                                                                                       | v9    | [v4](https://github.com/prisma/prisma)         | [Code-first](https://docs.nestjs.com/graphql/quick-start#code-first)  |
-| [nest-8-prisma-3](https://github.com/fivethree-team/nestjs-prisma-starter/tree/nest-8-prisma-3)                                                                                                       | v8    | [v3](https://github.com/prisma/prisma)         | [Code-first](https://docs.nestjs.com/graphql/quick-start#code-first)  |
-| [nest-7](https://github.com/fivethree-team/nestjs-prisma-starter/tree/nest-7)                                                                                                       | v7    | [v2](https://github.com/prisma/prisma2)         | [Code-first](https://docs.nestjs.com/graphql/quick-start#code-first)  |
-| [nest-6-prisma2-code-first](https://github.com/fivethree-team/nestjs-prisma-starter/tree/nest-6-prisma2-code-first) | v6    | [v2-preview](https://github.com/prisma/prisma2) | [Code-first](https://github.com/19majkel94/type-graphql)              |
-| [nest-6-code-first](https://github.com/fivethree-team/nestjs-prisma-starter/tree/nest-6-code-first)         | v6    | [v1](https://github.com/prisma/prisma)               | [Code-first](https://github.com/19majkel94/type-graphql)              |
-| [nest-6-sdl-first](https://github.com/fivethree-team/nestjs-prisma-starter/tree/nest-6-sdl-first)                                                                                        | v6    | [v1](https://github.com/prisma/prisma)               | [SDL First](https://docs.nestjs.com/graphql/quick-start#schema-first) |
-| [nest-5](https://github.com/fivethree-team/nestjs-prisma-starter/tree/nest-5)                     | v5    | [v1](https://github.com/prisma/prisma)               | [SDL First](https://docs.nestjs.com/graphql/quick-start#schema-first) |
-
-## Features
-
-- GraphQL w/ [playground](https://github.com/prisma/graphql-playground)
-- Code-First w/ [decorators](https://docs.nestjs.com/graphql/quick-start#code-first)
-- [Prisma](https://www.prisma.io/) for database modelling, migration and type-safe access (Postgres, MySQL & MongoDB)
-- 🔐 JWT authentication w/ [passport-jwt](https://github.com/mikenicholson/passport-jwt)
-- REST API docs w/ [Swagger](https://swagger.io/)
-
-## Overview
-
-- [Instructions](#instructions)
-  - [Features](#features)
-  - [Overview](#overview)
-  - [Prisma Setup](#prisma-setup)
-    - [1. Install Dependencies](#1-install-dependencies)
-    - [2. PostgreSQL with Docker](#2-PostgreSQL-with-docker)
-    - [3. Prisma: Prisma Migrate](#3-prisma-prisma-migrate)
-    - [4. Prisma: Prisma Client JS](#4-prisma-client-js)
-    - [5. Seed the database data with this script](#5-seed-the-database-data-with-this-script)
-    - [6. Start NestJS Server](#6-start-nestjs-server)
-  - [GraphQL Playground](#graphql-playground)
-  - [Rest Api](#rest-api)
-  - [Docker](#docker)
-  - [Schema Development](#schema-development)
-  - [NestJS - Api Schema](#nestjs---api-schema)
-    - [Resolver](#resolver)
-  - [GraphQL Client](#graphql-client)
-    - [Angular](#angular)
-      - [Setup](#setup)
-      - [Queries](#queries)
-      - [Mutations](#mutations)
-      - [Subscriptions](#subscriptions)
-      - [Authentication](#authentication)
 
 ## Prisma Setup
 
