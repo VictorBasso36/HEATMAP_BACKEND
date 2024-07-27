@@ -1,0 +1,84 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
+generator nestgraphql {
+  provider = "node node_modules/prisma-nestjs-graphql"
+  output   = "../src/@generated"
+}
+
+model User {
+  id                    String                  @id @default(cuid())
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  email                 String                  @unique
+  password              String
+  firstname             String?
+  lastname              String?
+  Company               Company?                @relation(fields: [companyId], references: [id])
+  role                  Role
+  resetPasswordToken    String?                 @unique
+  resetPasswordExpires  DateTime?
+  companyId             String?
+  Comment               Comment[]
+}
+
+model Company {
+  id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  cnpj        String?   @unique
+  location    String?
+  description String?
+  urlImage    String?
+  working     String?
+  approved    Boolean?  @default(false)
+  removed     Boolean?  @default(false)
+  name        String    @unique
+  ratingCount Int?      @default(0)
+  rating      Float?
+  User        User[]
+  Comment     Comment[]
+}
+
+model Comment {
+  id              String            @id @default(cuid())
+  title           String?
+  serviceType     String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  content         String
+  rating          Float?
+  approved        Boolean?          @default(false)
+  removed         Boolean?          @default(false)
+  companyId       String?
+  Company         Company?          @relation(fields: [companyId], references: [id])
+  userId          String?
+  User            User?             @relation(fields: [userId], references: [id])
+  CommentResponse CommentResponse[]
+}
+
+model CommentResponse {
+  id        String   @id @default(cuid())
+  CommentId String
+  approved  Boolean? @default(false)
+  Comment   Comment  @relation(fields: [CommentId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  content   String
+}
+
+enum Role {
+  ADMIN
+  USER
+}
